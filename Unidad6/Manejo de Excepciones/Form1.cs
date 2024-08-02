@@ -24,35 +24,57 @@ namespace Manejo_de_Excepciones
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
+            int resultado;
+            
             try
             {
-                int a, b;
-                a = int.Parse(txtNumero1.Text);
-                b = int.Parse(txtNumero2.Text);
-
+                resultado = calcular();
                 lblResultado.Visible = true;
-                lblResultado.Text = (a + b).ToString();
 
             }
-            catch (FormatException ex)
-            {
+            //catch (FormatException ex)
+            //{
                 
-                MessageBox.Show("ERROR, una de las variables ingresadas no es un mumero");
-                //throw;
-            }
-            catch(DivideByZeroException ex) 
-            {
-                MessageBox.Show("No se puede dividir por 0");
-            }   
-            catch (OverflowException ex)
-            {
-                MessageBox.Show("Ha ingresado un mumero muy grande");
-            }
+            //    MessageBox.Show("ERROR, una de las variables ingresadas no es un mumero");
+            //    //throw;
+            //}
+            //catch(DivideByZeroException ex) 
+            //{
+            //    MessageBox.Show("No se puede dividir por 0");
+            //}   
+            //catch (OverflowException ex)
+            //{
+            //    MessageBox.Show("Ha ingresado un mumero muy grande");
+            //}
             catch(Exception ex)
             {
                 MessageBox.Show("Comuniquese con el administrador del sistema");
             }
+            finally
+            {
+                
+            }
 
+            
+
+        }
+
+        private int calcular()
+        {
+            try
+            {
+                int a, b, r;
+                a = int.Parse(txtNumero1.Text);
+                b = int.Parse(txtNumero2.Text);
+                //
+                r = a / b;
+                return r;   
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }
